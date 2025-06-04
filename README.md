@@ -1,111 +1,180 @@
-# RedLotus Collector Advanced
+# Technical Utilities
 
-**RedLotus Collector Advanced** is a powerful SSing and file inspection / downloader tool tailored for screensharing. It automates multiple forensic tasks and utilizes advanced detection techniques to streamline investigative workflows.
+<div align="center">
 
-## Key Features
+![Forensics](https://img.shields.io/badge/Type-Forensics-red?style=for-the-badge)
+![Windows](https://img.shields.io/badge/Platform-Windows-blue?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.8+-green?style=for-the-badge)
 
-* **YARA Based Detections**
-  Detect cheats and suspicious files using generic and customizable YARA rules.
+*A tool specfically made to make PC Checkers / Screensharers Life **Easier***
 
-* **File Signature Verification**
-  Verifies PE file signatures and flags fake or suspiciously forged signatures — always good to double check during analysis.
+</div>
 
-* **Entropy Checks**
-  Identifies packed, obfuscated, or encrypted files based on entropy levels.
+---
 
-* **Import & Behavior Analysis**
-  Extracts and analyzes import tables to infer suspicious or malicious behavior.
+## Path Scanner
 
-* **Multi-threaded Processing**
-  Processes multiple files simultaneously to speed up large scale scans.
+> file analysis and detections
 
-* **Comprehensive CSV Reporting**
-  Outputs detailed results, including:
+### Features
 
-  * File paths
-  * File Name
-  * Detection metadata
-  * YARA matches
-  * Signature status
-  * Entropy values
-  * **File Imports**
+| Feature | Description |
+|---------|-------------|
+| **Hash Extraction** | Extracts SHA1 hashes from target files |
+| **PE Analysis** | Entropy calculation and section analysis for Windows PE files |
+| **YARA Integration** | Custom rules made by me with 20+ detection rules across multiple categories |
+| **Amcache Integration** | Parses Windows Amcache data for file replacement detection (*if picked default path to scan*)|
+| **SRUM Analysis** | Extracts application runtime and focus time data from SRUM |
 
-## Included Tools & Parsers
-
-RedLotus Collector Advanced automatically downloads and integrates a wide range of forensic utilities and open source tools for faster Screenshares. These tools are either used directly or parsed via command line interfaces.
-
-**Included Tools:**
-
-* AlternateStreamView
-* Amcache
-* BAMParser
-* bstrings
-* Detect It Easy
-* Everything Tool
-* HxD
-* HayaBusa
-* JournalTrace
-* JumpListExplorer
-* MFTCmd
-* PathsParser
-* PcaSvcExecuted
-* PECmd
-* PrefetchParser
-* ProcessParser
-* RamDumpExplorer
-* RECmd
-* RegistryExplorer
-* ReplaceParser
-* ShimCache
-* SrumECmd
-* System Informer Canary
-* TimelineExplorer
-* UsbDeview
-* Velociraptor
-* WinPrefetchView
-* WxTCmd
-
-> Tools such as Amcache, RECmd, AppCompatCatcheParser, SrumECmd.exe and others are parsed automatically through the command line as needed.
-
-## How to Use
-
-When first launched, you'll see 4 options:
-
+### Output Format
 ```
-1. Downloader
-2. Path's Analyzer
-3. Information
-4. Exit
+CSV Export Contains:
+├── File signatures and hash comparisons
+├── Entropy analysis of PE sections  
+├── YARA rule matches
+├── SRUM runtime statistics
+├── File replacement indicators
+└── MAC timestamp information
 ```
 
-**1. Downloader**
-Downloads all required tools to `C:\SS`. Only needs to be run once unless you're updating tools.
+---
 
-**2. Path's Analyzer**
-Takes in dumped file paths from user input. After input, the tool will:
+## Bypass Generic Checks
 
-* Ask what artifact the dump is from (e.g., ShimCache, Prefetch), which helps with labeling in the `.csv`.
-* Clean the input automatically by removing gibberish paths like `C:\asd.asd\random.ex1`.
-* Detect and eliminate duplicates across multiple dumps.
-* Output clean, artifact tagged results to `C:\scan_results.csv`.
+> Generic Bypass detections so you wont have to look for these!
 
-**3. Information**
-Displays details about the tool’s features and logic.
+### Features:
+```
+Event Log Scanning
+DLL Usage Analysis  
+Scheduled Tasks
+Registry Autorun Keys
+Mounted Devices
+Prefetch Analysis
+Modified Extensions
+External Execution from other drives
+Recent Files
+PE Injection
+BAM Analysis
+Files Executed from Archives
+AnyDesk file transfer analysis
+File Modifications
+Ghost Deletions
+Attribute Manipulation
+Self Destruct Patterns
+```
 
-**4. Exit**
-Closes the application.
+### Output
+> **Location:** `C:\Bypass_generics.csv`  
+> Results exported to CSV format for you to use Timeline Explorer with.
 
-## Output Locations
+---
 
-* `C:\SS\` — Main tools directory
-* `C:\paths.txt` — List of analyzed file paths
-* `C:\scan_results.csv` — Full scan results (includes imports, YARA matches, etc.)
+## Tool Downloader
 
-## Notes
+> Automated deployment of essential forensic tools
 
-* **Admin Privileges Required:** Some operations, such as accessing protected file paths or registry hives, require the tool to be run as Administrator.
-* **Internet Required on First Run:** Tools are downloaded automatically if not found locally.
+### Included Tools
 
-**Screenshare Collector Advanced** is ideal for screensharers who needs their tools downloaded fast, repeatable, and detailed file analysis during screensharing.
+<details>
+<summary><strong>Tools</strong></summary>
 
-# Have fun!
+- **AmcacheParser**
+- **ShimCache**
+- **System Informer**
+- **WinLiveInfo**
+- **MFTECmd**
+- **USNHelper**
+- **PECmd**
+- **JournalTrace**
+- **RegistryExplorer**
+- **RECmd**
+
+</details>
+
+<details>
+<summary><strong>More Tools!</strong></summary>
+
+- **BAMParser**
+- **Hayabusa**
+- **SrumECmd**
+- **WxTCmd**
+- **Detect It Easy (DIE)**
+- **ExeInfoPE**
+- **bstrings**
+- **PrefetchParser**
+
+</details>
+
+<details>
+<summary><strong>Even More!!!</strong></summary>
+
+- **ProcessParser**
+- **PathsParser**
+- **ReplaceParser**
+- **PcaSvcExecuted**
+- **Everything**
+- **HxD**
+
+</details>
+
+<details>
+<summary><strong>Yes, There is more...</strong></summary>
+
+- **JumpListExplorer**
+- **TimelineExplorer**
+- **UsbDeview**
+- **AlternateStreamView**
+- **WinPrefetchView**
+- **RAMDumpExplorer**
+- **Velociraptor**
+
+</details>
+
+### Installation Process
+```
+# The installer will automatically:
+1️⃣ Create C:\SS base directory
+2️⃣ Download all tools to individual folders  
+3️⃣ Extract archives automatically
+4️⃣ Run initial analysis commands where configured
+5️⃣ Clean up temporary files
+```
+
+### Output Structure
+```
+C:\SS\
+├── AmcacheParser/
+├── ShimCache/
+├── SystemInformer/
+├── WinLiveInfo/
+├── MFTECmd/
+└── [Additional tool directories...]
+```
+
+> Each tool generates forensic artifacts and CSV's in their respective folders under `C:\SS\`
+
+---
+
+---
+
+## Requirements
+
+- Windows 10/11
+- Administrator privileges
+- Active internet connection for tool downloads
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to contribute by messaging @txchnology on discord and i will take your ideas to consideration!
+
+---
+
+<div align="center">
+
+**⭐ Star this repository if you find it helpful!**
+
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/forensic-toolkit-suite?style=social)](https://github.com/yourusername/forensic-toolkit-suite/stargazers)
+
+</div>
