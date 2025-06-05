@@ -175,6 +175,6 @@ Contributions are welcome! Please feel free to contribute by messaging @txchnolo
 
 **⭐ Star this repository if you find it helpful!**
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/forensic-toolkit-suite?style=social)](https://github.com/yourusername/forensic-toolkit-suite/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/txvch/Screenshare-Collector?style=social)](https://github.com/txvch/Screenshare-Collector/stargazers)
 
 </div>
